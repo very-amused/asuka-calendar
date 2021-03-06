@@ -4,5 +4,5 @@ const day = new CalendarDay('test')
 
 ;(async () => {
   await day.loadTemplate('img/template.png')
-  day.writeTopText('Sunday')
+  day.writeTopText('Wednesday')
 })()

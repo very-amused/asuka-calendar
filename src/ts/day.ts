@@ -27,9 +27,9 @@ export class CalendarDay {
 
   writeTopText(text: string) {
     const { ctx } = this
-    const posX = this.canvas.width / 6
-    const posY = 20
-    ctx.font = '24px Impact'
+    const posX = this.canvas.width / 7
+    const posY = 24
+    ctx.font = 'bold 27px Impact'
     ctx.fillStyle = 'white'
     ctx.fillText(text, posX, posY)
   }
