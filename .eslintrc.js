@@ -37,9 +37,6 @@ module.exports =  {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/ban-ts-comment': 'warn',
-    '@typescript-eslint/explicit-function-return-type': ['error', {
-      allowExpressions: true
-    }]
+    '@typescript-eslint/ban-ts-comment': 'warn'
   }
 }
