@@ -1,0 +1,27 @@
+{
+  "name": "asuka-calendar",
+  "version": "1.0.0",
+  "description": "Draws a calendar composed of Asuka wrongly announcing each day, before correcting herself.",
+  "main": "index.js",
+  "repository": "git+https://github.com/very-amused/asuka-calendar",
+  "author": "very-amused <very-amused@pm.me>",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "build": "cp src/index.html static/",
+    "serve": "ts-node-script src/server.ts"
+  },
+  "dependencies": {
+    "polka": "^0.5.2",
+    "serve-static": "^1.14.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/polka": "^0.5.2",
+    "@types/serve-static": "^1.13.9",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0"
+  }
+}
