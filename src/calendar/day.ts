@@ -19,10 +19,15 @@ export class CalendarDay {
     }
     // Grow the canvas to the size of the template
     this.canvas.width = template.width as number / 2
+
     this.canvas.height = template.height as number / 2
 
     const { ctx } = this
     ctx.drawImage(template, 0, 0, this.canvas.width, this.canvas.height)
+
+    // Load impact font
+    const impact = await new FontFace('Impact', 'url(./fonts/impact.ttf)').load()
+    document.fonts.add(impact)
   }
 
   writeTopText(text: string) {

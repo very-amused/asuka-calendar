@@ -8,8 +8,7 @@
   "license": "Unlicense",
   "private": true,
   "scripts": {
-    "build": "cp src/index.html static/",
-    "serve": "ts-node-script src/server.ts"
+    "dev": "snowpack dev"
   },
   "dependencies": {
     "polka": "^0.5.2",
@@ -19,6 +18,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-typescript": "^1.2.1",
+    "@types/css-font-loading-module": "^0.0.4",
     "@types/polka": "^0.5.2",
     "@types/serve-static": "^1.13.9",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
