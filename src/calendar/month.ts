@@ -47,7 +47,6 @@ export class CalendarMonth {
 
       // Find the name of the day of the week
       const dayOfWeek = WeekDays[gridColumn - 1]
-      console.log(dayOfWeek)
 
       const day = new CalendarDay(canvas)
       await day.loadTemplate('./img/template.png')

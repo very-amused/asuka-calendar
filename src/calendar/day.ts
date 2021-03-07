@@ -18,8 +18,9 @@ export class CalendarDay {
     }
     // Grow the canvas to the size of the box its filling
     const rect = this.canvas.getBoundingClientRect()
-    this.canvas.width = Math.max(rect.width, rect.height) 
-    this.canvas.height = Math.max(rect.width, rect.height)
+    const side = Math.max(rect.width, rect.height) * 0.7
+    this.canvas.width = side
+    this.canvas.height = side
     const { ctx } = this
     ctx.drawImage(template, 0, 0, this.canvas.width, this.canvas.height)
 
@@ -35,8 +36,8 @@ export class CalendarDay {
   writeTopText(text: string) {
     const { ctx } = this
     const posX = Math.round(this.canvas.width / 3 + (this.canvas.width / 50))
-    const posY = 24
-    ctx.font = `bold ${text.length >= 9 ? posY + 2 : posY + 6}px Impact`
+    const posY = text.length < 9 ? 18 : 16
+    ctx.font = `bold ${text.length < 9 ? posY + 4 : posY + 2}px Impact`
     ctx.textAlign = 'center'
     ctx.fillText(text, posX, posY)
     ctx.strokeText(text, posX, posY)
@@ -45,7 +46,7 @@ export class CalendarDay {
   writeBottomText(text: string) {
     const { ctx } = this
     const posX = Math.round(this.canvas.width / 2)
-    const posY = Math.round(this.canvas.height - 12)
+    const posY = Math.round(this.canvas.height - 8)
     ctx.font = `bold ${text.length < 9 ? Math.round(this.canvas.width / 6) : Math.round(this.canvas.width / 7)}px Impact`
     ctx.textAlign = 'center'
     ctx.fillText(text, posX, posY)
