@@ -55,9 +55,9 @@ export class CalendarDay {
 
   writeDate(date: number) {
     const { ctx } = this
-    const posX = Math.round(this.canvas.width - 6)
+    const posX = Math.round(this.canvas.width - (date < 10 ? 6 : 3))
     const posY = Math.round(this.canvas.height - 6)
-    ctx.font = 'light 24px sans'
+    ctx.font = '22px Impact'
     ctx.textAlign = 'right'
     ctx.fillText(date.toString(), posX, posY)
   }

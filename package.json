@@ -8,7 +8,8 @@
   "license": "Unlicense",
   "private": true,
   "scripts": {
-    "dev": "snowpack dev"
+    "dev": "snowpack dev",
+    "build": "snowpack build"
   },
   "dependencies": {
     "polka": "^0.5.2",
