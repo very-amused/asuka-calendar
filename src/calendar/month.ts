@@ -10,7 +10,7 @@ export enum WeekDays {
   Saturday
 }
 
-function getRandomDayNot(days: WeekDays[]): WeekDays {
+function getRandomDayNot(...days: WeekDays[]): WeekDays {
   let day: WeekDays
   const possibleDays = Object.values(WeekDays)
     .filter(v => typeof v !== 'string') as WeekDays[]
@@ -24,6 +24,7 @@ export class CalendarMonth {
   el: HTMLElement
   days: number
   startsOn: WeekDays
+  randomDays: { [date: number]: WeekDays } = {}
 
   constructor(monthID: string) {
     this.el = document.getElementById(monthID) as HTMLElement
@@ -45,12 +46,18 @@ export class CalendarMonth {
       this.el.appendChild(canvas)
 
       // Find the name of the day of the week
-      const dayOfWeek = WeekDays[gridColumn - 1]
+      const dayOfWeek: WeekDays = gridColumn - 1
 
       const day = new CalendarDay(canvas)
       await day.loadTemplate('./img/template.png')
-      day.writeBottomText(dayOfWeek)
-      day.writeTopText(WeekDays[getRandomDayNot([gridColumn - 1] as WeekDays[])])
+      day.writeBottomText(WeekDays[dayOfWeek])
+      const randomDay = getRandomDayNot(
+        this.randomDays[i-1],
+        dayOfWeek,
+        this.randomDays[i-7]
+      )
+      this.randomDays[i] = randomDay
+      day.writeTopText(WeekDays[randomDay])
       day.writeDate(i + 1 - this.startsOn)
     }
   }
