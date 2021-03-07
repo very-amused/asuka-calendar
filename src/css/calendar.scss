@@ -1,13 +1,18 @@
 .month {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, max-content);
   grid-template-rows: max-content repeat(4, 1fr);
   padding: 3rem;
+  max-width: 100%;
 
   .title {
     font-size: 3rem;
     grid-row: 1;
     grid-column: 1 / -1;
     text-align: center;
+  }
+
+  canvas {
+    margin: 0.5rem;
   }
 }
