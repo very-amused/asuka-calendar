@@ -8,5 +8,5 @@ module.exports = {
       resolve: false
     }
   },
-  plugins: ['@snowpack/plugin-typescript']
+  plugins: ['@snowpack/plugin-typescript', '@snowpack/plugin-sass']
 }

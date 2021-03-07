@@ -5,9 +5,8 @@ export class CalendarDay {
   canvas: HTMLCanvasElement
   ctx: CanvasRenderingContext2D
 
-  constructor(canvasID: string) {
-    this.canvas = document.getElementById(canvasID) as HTMLCanvasElement
-    console.log(this.canvas)
+  constructor(canvas: HTMLCanvasElement) {
+    this.canvas = canvas
     this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D
   }
 
@@ -17,10 +16,14 @@ export class CalendarDay {
       const res = await fetch(imageURL)
       template = await createImageBitmap(await res.blob())
     }
-    // Grow the canvas to the size of the template
-    this.canvas.width = template.width as number / 2
+    // Grow the canvas to the size of the box its filling
+    const rect = this.canvas.getBoundingClientRect()
+    this.canvas.width = rect.width
+    this.canvas.height = rect.height
 
-    this.canvas.height = template.height as number / 2
+    this.canvas.width = 
+
+    this.canvas.height = template.height as number / 3
 
     const { ctx } = this
     ctx.drawImage(template, 0, 0, this.canvas.width, this.canvas.height)
@@ -36,6 +39,17 @@ export class CalendarDay {
     const posY = 24
     ctx.font = 'bold 27px Impact'
     ctx.fillStyle = 'white'
+    ctx.textAlign = 'left'
+    ctx.fillText(text, posX, posY)
+  }
+
+  writeBottomText(text: string) {
+    const { ctx } = this
+    const posX = this.canvas.width / 2
+    const posY = this.canvas.height - 12
+    ctx.font = 'bold 40px Impact'
+    ctx.fillStyle = 'white'
+    ctx.textAlign = 'center'
     ctx.fillText(text, posX, posY)
   }
 }

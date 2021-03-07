@@ -1,8 +1,9 @@
-import { CalendarDay } from './day.js'
+import { CalendarMonth }  from './month.js'
 
-const day = new CalendarDay('test')
+const month = new CalendarMonth('march')
 
-;(async () => {
-  await day.loadTemplate('img/template.png')
-  day.writeTopText('Wednesday')
-})()
+async function render() {
+  await month.draw()
+}
+
+render()
