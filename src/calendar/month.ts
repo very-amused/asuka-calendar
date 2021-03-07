@@ -35,7 +35,6 @@ export class CalendarMonth {
     for (let i = this.startsOn; i < (this.days + this.startsOn); i++) {
       const gridRow = Math.ceil((i + 1) / 7) + 1
       const gridColumn = (i % 7) + 1
-      console.log(gridColumn)
 
       // Create a canvas element for the day
       const canvas = document.createElement('canvas')
