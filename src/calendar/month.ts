@@ -26,10 +26,10 @@ export class CalendarMonth {
   startsOn: WeekDays
   randomDays: { [date: number]: WeekDays } = {}
 
-  constructor(monthID: string) {
-    this.el = document.getElementById(monthID) as HTMLElement
-    this.days = 31
-    this.startsOn = WeekDays.Monday
+  constructor(monthEl: HTMLElement, days: number, startsOn: WeekDays) {
+    this.el = monthEl
+    this.days = days
+    this.startsOn = startsOn
   }
 
   async draw() {
