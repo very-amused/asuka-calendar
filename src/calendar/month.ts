@@ -21,10 +21,10 @@ function getRandomDayNot(...days: WeekDays[]): WeekDays {
 }
 
 export class CalendarMonth {
-  el: HTMLElement
-  days: number
-  startsOn: WeekDays
-  randomDays: { [date: number]: WeekDays } = {}
+  private el: HTMLElement
+  private days: number
+  private startsOn: WeekDays
+  private randomDays: { [date: number]: WeekDays } = {}
 
   constructor(monthEl: HTMLElement, days: number, startsOn: WeekDays) {
     this.el = monthEl

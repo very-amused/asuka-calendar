@@ -2,8 +2,8 @@ let template: CanvasImageSource
 
 // Load canvas element
 export class CalendarDay {
-  canvas: HTMLCanvasElement
-  ctx: CanvasRenderingContext2D
+  private canvas: HTMLCanvasElement
+  private ctx: CanvasRenderingContext2D
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
